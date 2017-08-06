@@ -5,7 +5,7 @@
 #include "Configuration_prusa.h"
 
 // Firmware version
-#define FW_version "3.0.12-2"
+#define FW_version "3.0.12-3"
 
 #define FW_PRUSA3D_MAGIC "PRUSA3DFW"
 #define FW_PRUSA3D_MAGIC_LEN 10
@@ -47,6 +47,10 @@
 #define EEPROM_TEMP_CAL_ACTIVE (EEPROM_PROBE_TEMP_SHIFT - 1)
 #define EEPROM_BOWDEN_LENGTH (EEPROM_TEMP_CAL_ACTIVE - 2*4) //4 x int for bowden lengths for multimaterial
 #define EEPROM_CALIBRATION_STATUS_PINDA (EEPROM_BOWDEN_LENGTH - 1) //0 - not calibrated; 1 - calibrated
+// Filament runout sensor activate and invert
+#define EEPROM_FR_SENS_ACTIVE (EEPROM_CALIBRATION_STATUS_PINDA - 1) //0 - filament runout sensor disabled; 1 - .. activated
+#define EEPROM_FR_SENS_INVERT (EEPROM_FR_SENS_ACTIVE - 1) //0 - filament runout sensor inverted; 1 - .. normal
+
 
 // Currently running firmware, each digit stored as uint16_t.
 // The flavor differentiates a dev, alpha, beta, release candidate or a release version.
@@ -70,7 +74,7 @@
 //#define STRING_VERSION "1.0.2"
 
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
-#define STRING_CONFIG_H_AUTHOR "3d-gussner,0801v1" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "3d-gussner,0806v1" // Who made the changes.
 
 // SERIAL_PORT selects which serial port should be used for communication with the host.
 // This allows the connection of wireless adapters (for instance) to non-default port pins.

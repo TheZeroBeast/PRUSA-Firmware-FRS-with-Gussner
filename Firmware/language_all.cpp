@@ -1368,6 +1368,26 @@ const char * const MSG_FREE_MEMORY_LANG_TABLE[1] PROGMEM = {
 	MSG_FREE_MEMORY_EN
 };
 
+const char MSG_FR_SENS_ACTIVE_OFF_EN[] PROGMEM = "FilSens    [OFF]";
+const char * const MSG_FR_SENS_ACTIVE_OFF_LANG_TABLE[1] PROGMEM = {
+	MSG_FR_SENS_ACTIVE_OFF_EN
+};
+
+const char MSG_FR_SENS_ACTIVE_ON_EN[] PROGMEM = "FilSens     [ON]";
+const char * const MSG_FR_SENS_ACTIVE_ON_LANG_TABLE[1] PROGMEM = {
+	MSG_FR_SENS_ACTIVE_ON_EN
+};
+
+const char MSG_FR_SENS_INVERT_OFF_EN[] PROGMEM = "FilSens [invert]";
+const char * const MSG_FR_SENS_INVERT_OFF_LANG_TABLE[1] PROGMEM = {
+	MSG_FR_SENS_INVERT_OFF_EN
+};
+
+const char MSG_FR_SENS_INVERT_ON_EN[] PROGMEM = "FilSens [normal]";
+const char * const MSG_FR_SENS_INVERT_ON_LANG_TABLE[1] PROGMEM = {
+	MSG_FR_SENS_INVERT_ON_EN
+};
+
 const char MSG_HEATING_EN[] PROGMEM = "Heating";
 const char MSG_HEATING_CZ[] PROGMEM = "Zahrivani";
 const char MSG_HEATING_IT[] PROGMEM = "Riscaldamento...";

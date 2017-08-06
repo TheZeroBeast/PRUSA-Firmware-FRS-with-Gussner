@@ -2032,6 +2032,8 @@ void process_commands()
 {
   #ifdef FILAMENT_RUNOUT_SUPPORT
     SET_INPUT(FR_SENS);
+	eeprom_write_byte((uint8_t*)EEPROM_FR_SENS_ACTIVE, 0);
+	eeprom_write_byte((uint8_t*)EEPROM_FR_SENS_INVERT, 0);
   #endif
 
 #ifdef CMDBUFFER_DEBUG

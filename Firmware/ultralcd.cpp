@@ -96,6 +96,13 @@ int8_t SDscrool = 0;
 
 int8_t SilentModeMenu = 0;
 
+#ifdef FR_SENS
+int8_t FrSensActive = 0;
+int8_t FrSensInvert = 0;
+static void lcd_fr_sens_active_set();
+static void lcd_fr_sens_invert_set();
+#endif
+
 #ifdef SNMM
 uint8_t snmm_extruder = 0;
 #endif
@@ -730,7 +737,7 @@ void lcd_commands()
 			lcd_commands_step = 5;
 			#endif
 			#ifdef DEFAULT_PID_BED_TEMP
-			lcd_commands_step = lcd_commands_step+1
+			lcd_commands_step = lcd_commands_step+1;
 			#endif
 		}
 
@@ -2079,10 +2086,10 @@ static void lcd_show_end_stops() {
     lcd_printPGM((READ(Y_MIN_PIN) ^ Y_MIN_ENDSTOP_INVERTING == 1) ? (PSTR("Y1")) : (PSTR("Y0")));
     lcd.setCursor(0, 3);
     lcd_printPGM((READ(Z_MIN_PIN) ^ Z_MIN_ENDSTOP_INVERTING == 1) ? (PSTR("Z1")) : (PSTR("Z0")));
-#ifdef FR_SENS
+	if (FrSensActive = 1) {
 		lcd.setCursor(4, 1);
 		lcd_printPGM((READ(FR_SENS) ^ FR_SENS_INVERTING == 1) ? (PSTR("FR_S1")) : (PSTR("FR_S0")));
-#endif
+	}
 }
 
 static void menu_show_end_stops() {
@@ -2651,9 +2658,29 @@ void lcd_toshiba_flash_air_compatibility_toggle()
    eeprom_update_byte((uint8_t*)EEPROM_TOSHIBA_FLASH_AIR_COMPATIBLITY, card.ToshibaFlashAir_isEnabled());
 }
 
+// Filament runout sensor 
+static void lcd_fr_sens_active_set()
+{
+  FrSensActive = !FrSensActive;
+  eeprom_update_byte((unsigned char *)EEPROM_FR_SENS_ACTIVE, FrSensActive);
+  digipot_init();
+  lcd_goto_menu(lcd_settings_menu, 7);
+}
+
+static void lcd_fr_sens_invert_set()
+{
+  FrSensInvert = !FrSensInvert;
+  eeprom_update_byte((unsigned char *)EEPROM_FR_SENS_INVERT, FrSensInvert);
+  digipot_init();
+  lcd_goto_menu(lcd_settings_menu, 7);
+}
+
+
 static void lcd_settings_menu()
 {
   EEPROM_read(EEPROM_SILENT, (uint8_t*)&SilentModeMenu, sizeof(SilentModeMenu));
+  EEPROM_read(EEPROM_FR_SENS_ACTIVE, (uint8_t*)&FrSensActive, sizeof(FrSensActive));
+  EEPROM_read(EEPROM_FR_SENS_INVERT, (uint8_t*)&FrSensInvert, sizeof(FrSensInvert));
   START_MENU();
 
   MENU_ITEM(back, MSG_MAIN, lcd_main_menu);
@@ -2691,7 +2718,17 @@ static void lcd_settings_menu()
         MENU_ITEM(submenu, PSTR("Farm number"), lcd_farm_no);
 		MENU_ITEM(function, PSTR("Disable farm mode"), lcd_disable_farm_mode);
     }
-
+	
+  if (FR_SENS) {
+	MENU_ITEM(function, MSG_FR_SENS_ACTIVE_ON, lcd_fr_sens_active_set);
+	} else {
+	MENU_ITEM(function, MSG_FR_SENS_ACTIVE_OFF, lcd_fr_sens_active_set);
+	}
+  if (FrSensActive = 1)  {
+    MENU_ITEM(function, MSG_FR_SENS_INVERT_ON, lcd_fr_sens_invert_set);
+	} else {
+	MENU_ITEM(function, MSG_FR_SENS_INVERT_OFF, lcd_fr_sens_invert_set);
+    }
 	END_MENU();
 }
 
@@ -4997,7 +5034,6 @@ static void menu_action_sdfile(const char* filename, char* longFilename)
   for (c = &cmd[4]; *c; c++)
     *c = tolower(*c);
   enquecommand(cmd);
-
   enquecommand_P(PSTR("M24"));
   lcd_return_to_status();
 }
