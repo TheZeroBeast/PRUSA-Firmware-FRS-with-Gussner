@@ -254,6 +254,11 @@ bool homing_flag = false;
 
 bool temp_cal_active = false;
 
+//bool fr_sens_active = eeprom_read_byte((unsigned char*)EEPROM_FR_SENS_ACTIVE) == 1;
+//bool fr_sens_invert = eeprom_read_byte((unsigned char*)EEPROM_FR_SENS_INVERT) == 1;
+bool fr_sens_active = false;
+bool fr_sens_invert = false;
+
 unsigned long kicktime = millis()+100000;
 
 unsigned int  usb_printing_counter;

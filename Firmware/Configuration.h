@@ -74,7 +74,7 @@
 //#define STRING_VERSION "1.0.2"
 
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
-#define STRING_CONFIG_H_AUTHOR "3d-gussner,0806v1" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "3d-gussner,0807v1" // Who made the changes.
 
 // SERIAL_PORT selects which serial port should be used for communication with the host.
 // This allows the connection of wireless adapters (for instance) to non-default port pins.
@@ -687,7 +687,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
  **********************************************************************/
 // Uncomment below to enable
 #define FILAMENT_SENSOR
-
+#define FR_SENS_ACTIVE
+#define FR_SENS_INVERT
 #define FILAMENT_SENSOR_EXTRUDER_NUM	0  //The number of the extruder that has the filament sensor (0,1,2)
 #define MEASUREMENT_DELAY_CM			14  //measurement delay in cm.  This is the distance from filament sensor to middle of barrel
 

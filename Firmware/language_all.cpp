@@ -1388,6 +1388,11 @@ const char * const MSG_FR_SENS_INVERT_ON_LANG_TABLE[1] PROGMEM = {
 	MSG_FR_SENS_INVERT_ON_EN
 };
 
+const char MSG_FR_SENS_SETTINGS_EN[] PROGMEM = "Filament Sensor";
+const char * const MSG_FR_SENS_SETTINGS_LANG_TABLE[1] PROGMEM = {
+	MSG_FR_SENS_SETTINGS_EN
+};
+
 const char MSG_HEATING_EN[] PROGMEM = "Heating";
 const char MSG_HEATING_CZ[] PROGMEM = "Zahrivani";
 const char MSG_HEATING_IT[] PROGMEM = "Riscaldamento...";

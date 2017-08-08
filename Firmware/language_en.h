@@ -315,6 +315,7 @@
 #define(length=15, lines=1) MSG_SLIGHT_SKEW						"Slight skew:"
 #define(length=15, lines=1) MSG_SEVERE_SKEW						"Severe skew:"
 #define(length=20, lines=4) MSG_DEFAULT_SETTINGS_LOADED			"Default settings loaded"
+#define(length=20) MSG_FR_SENS_SETTINGS							"Filament Sensor"
 #define(length=20) MSG_FR_SENS_ACTIVE_ON						"FilSens     [ON]"
 #define(length=20) MSG_FR_SENS_ACTIVE_OFF						"FilSens    [OFF]"
 #define(length=20) MSG_FR_SENS_INVERT_ON						"FilSens [normal]"
