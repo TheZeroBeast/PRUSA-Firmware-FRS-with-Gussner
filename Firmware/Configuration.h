@@ -47,10 +47,10 @@
 #define EEPROM_TEMP_CAL_ACTIVE (EEPROM_PROBE_TEMP_SHIFT - 1)
 #define EEPROM_BOWDEN_LENGTH (EEPROM_TEMP_CAL_ACTIVE - 2*4) //4 x int for bowden lengths for multimaterial
 #define EEPROM_CALIBRATION_STATUS_PINDA (EEPROM_BOWDEN_LENGTH - 1) //0 - not calibrated; 1 - calibrated
-// Filament runout sensor activate and invert
+// FR_SENS
 #define EEPROM_FR_SENS_ACTIVE (EEPROM_CALIBRATION_STATUS_PINDA - 1) //0 - filament runout sensor disabled; 1 - .. activated
-#define EEPROM_FR_SENS_INVERT (EEPROM_FR_SENS_ACTIVE - 1) //0 - filament runout sensor inverted; 1 - .. normal
-
+#define EEPROM_FR_SENS_INVERTING (EEPROM_FR_SENS_ACTIVE - 1) //0 - filament runout sensor inverted; 1 - .. normal
+// end FR_SENS
 
 // Currently running firmware, each digit stored as uint16_t.
 // The flavor differentiates a dev, alpha, beta, release candidate or a release version.
@@ -74,7 +74,7 @@
 //#define STRING_VERSION "1.0.2"
 
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
-#define STRING_CONFIG_H_AUTHOR "3d-gussner,0807v1" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "3d-gussner,0810v1" // Who made the changes.
 
 // SERIAL_PORT selects which serial port should be used for communication with the host.
 // This allows the connection of wireless adapters (for instance) to non-default port pins.
@@ -251,7 +251,7 @@ your extruder heater takes 2 minutes to hit the target on heating.
 const bool X_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
 const bool Y_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
 const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
-//#define DISABLE_MAX_ENDSTOPS
+#define DISABLE_MAX_ENDSTOPS
 //#define DISABLE_MIN_ENDSTOPS
 
 // Disable max endstops for compatibility with endstop checking routine
@@ -687,8 +687,6 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
  **********************************************************************/
 // Uncomment below to enable
 #define FILAMENT_SENSOR
-#define FR_SENS_ACTIVE
-#define FR_SENS_INVERT
 #define FILAMENT_SENSOR_EXTRUDER_NUM	0  //The number of the extruder that has the filament sensor (0,1,2)
 #define MEASUREMENT_DELAY_CM			14  //measurement delay in cm.  This is the distance from filament sensor to middle of barrel
 

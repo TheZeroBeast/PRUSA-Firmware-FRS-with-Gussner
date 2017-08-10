@@ -286,8 +286,10 @@ extern int bowden_length[4];
 extern bool is_usb_printing;
 extern bool homing_flag;
 extern bool temp_cal_active;
+// FR_SENS
 extern bool fr_sens_active;
-extern bool fr_sens_invert;
+extern bool FR_SENS_INVERTING;
+// end FR_SENS
 extern bool loading_flag;
 extern unsigned int usb_printing_counter;
 

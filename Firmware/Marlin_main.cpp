@@ -254,10 +254,11 @@ bool homing_flag = false;
 
 bool temp_cal_active = false;
 
-//bool fr_sens_active = eeprom_read_byte((unsigned char*)EEPROM_FR_SENS_ACTIVE) == 1;
-//bool fr_sens_invert = eeprom_read_byte((unsigned char*)EEPROM_FR_SENS_INVERT) == 1;
+// FR_SENS
 bool fr_sens_active = false;
-bool fr_sens_invert = false;
+bool FR_SENS_INVERTING = true;
+bool fr_sens_inv = true;
+// end FR_SENS
 
 unsigned long kicktime = millis()+100000;
 
@@ -1217,6 +1218,10 @@ void setup()
   }
   for (int i = 0; i<4; i++) EEPROM_read_B(EEPROM_BOWDEN_LENGTH + i * 2, &bowden_length[i]);
   
+  //FR_SENS
+	fr_sens_active = eeprom_read_byte((uint8_t*)EEPROM_FR_SENS_ACTIVE);
+	FR_SENS_INVERTING = eeprom_read_byte((uint8_t*)EEPROM_FR_SENS_INVERTING);
+  
   //If eeprom version for storing parameters to eeprom using M500 changed, default settings are used. Inform user in this case
   if (!previous_settings_retrieved) {
 	  lcd_show_fullscreen_message_and_wait_P(MSG_DEFAULT_SETTINGS_LOADED);
@@ -2037,8 +2042,6 @@ void process_commands()
 {
   #ifdef FILAMENT_RUNOUT_SUPPORT
     SET_INPUT(FR_SENS);
-	eeprom_write_byte((uint8_t*)EEPROM_FR_SENS_ACTIVE, 0);
-	eeprom_write_byte((uint8_t*)EEPROM_FR_SENS_INVERT, 0);
   #endif
 
 #ifdef CMDBUFFER_DEBUG
@@ -2151,8 +2154,13 @@ void process_commands()
       if(Stopped == false) {
 
         #ifdef FILAMENT_RUNOUT_SUPPORT
-            
-            if(READ(FR_SENS)){
+		if (fr_sens_active) {
+			if (FR_SENS_INVERTING) {
+				bool fr_sens_inv=(READ(FR_SENS));
+			} else {
+				bool fr_sens_inv=(READ(FR_SENS) != FR_SENS_INVERTING);
+			}
+            if(fr_sens_inv){
 
                         feedmultiplyBckp=feedmultiply;
                         float target[4];
@@ -2320,7 +2328,7 @@ void process_commands()
             }
 
 
-
+		}
         #endif
 
 
@@ -4498,14 +4506,18 @@ Sigma_Exit:
         }
         SERIAL_PROTOCOLLN("");
       #endif
+	  // FR_SENS
 	  #if defined(FR_SENS) && FR_SENS > -1
-        SERIAL_PROTOCOLRPGM(MSG_Y_MAX);
+	  if (fr_sens_active) {
+        SERIAL_PROTOCOLRPGM(MSG_FR_SENS);
         if(READ(FR_SENS)^FR_SENS_INVERTING){
-          SERIAL_PROTOCOLRPGM(MSG_ENDSTOP_HIT);
+          SERIAL_PROTOCOLRPGM(MSG_FR_SENS_OPEN);
         }else{
-          SERIAL_PROTOCOLRPGM(MSG_ENDSTOP_OPEN);
+          SERIAL_PROTOCOLRPGM(MSG_FR_SENS_HIT);
         }
         SERIAL_PROTOCOLLN("");
+	  }
+	  // end FR_SENS
       #endif
       break;
       //TODO: update for all axis, use for loop
