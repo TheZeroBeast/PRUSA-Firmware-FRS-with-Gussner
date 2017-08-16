@@ -462,6 +462,22 @@ void lcd_set_custom_characters_arrows()
     lcd.createChar(1, arrdown);
 }
 
+void lcd_set_custom_characters_progress()
+{
+	byte progress[8] = {
+		B11111,
+		B11111,
+		B11111,
+		B11111,
+		B11111,
+		B11111,
+		B11111,
+		B11111,
+	};
+
+	lcd.createChar(1, progress);
+}
+
 void lcd_set_custom_characters_nextpage()
  {
 
@@ -804,7 +820,11 @@ static void lcd_implementation_status_screen()
     lcd_printPGM(PSTR("  "));
 
 
-    //Print status line
+#ifdef DEBUG_DISABLE_LCD_STATUS_LINE
+	return;
+#endif //DEBUG_DISABLE_LCD_STATUS_LINE
+
+	//Print status line
     lcd.setCursor(0, 3);
 
     // If heating in progress, set flag

@@ -325,3 +325,7 @@
 #define MSG_SLIGHT_SKEW						"Geringe Asym.:"
 #define MSG_SEVERE_SKEW						"Hevige  Asym.:"
 #define(length=20, lines=4) MSG_DEFAULT_SETTINGS_LOADED			"Standaard instellingen geladen"
+#define(length=17, lines=1) MSG_SORT_TIME						"Sort:     [Tijd]"
+#define(length=17, lines=1) MSG_SORT_ALPHA						"Sort: 	[Alfabet]"
+#define(length=17, lines=1) MSG_SORT_NONE						"Sort:     [Geen]"
+#define(length=20, lines=1) MSG_SORTING							"Sortere bestand"

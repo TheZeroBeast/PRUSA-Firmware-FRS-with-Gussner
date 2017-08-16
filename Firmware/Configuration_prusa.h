@@ -112,9 +112,9 @@ EXTRUDER SETTINGS
 //#define  DEFAULT_Ki 4.875		//orig
 //#define  DEFAULT_Kd 86.085	//orig
 
-#define  DEFAULT_Kp 22.39	//205C
-#define  DEFAULT_Ki 1.98	//205C	
-#define  DEFAULT_Kd 63.27	//205C
+#define  DEFAULT_Kp 22.39	//205C 3d-gussner
+#define  DEFAULT_Ki 1.98	//205C 3d-gussner
+#define  DEFAULT_Kd 63.27	//205C 3d-gussner
 
 //#define  DEFAULT_Kp 23.68	//255C
 //#define  DEFAULT_Ki 1.98	//255C
@@ -278,9 +278,9 @@ BED SETTINGS
 //#define  DEFAULT_bedKi 4.30	//orig
 //#define  DEFAULT_bedKd 924.76	//orig
 
-#define  DEFAULT_bedKp 59.24	//55C
-#define  DEFAULT_bedKi 2.62		//55C
-#define  DEFAULT_bedKd 334.88	//55C
+#define  DEFAULT_bedKp 59.24	//55C 3d-gussner
+#define  DEFAULT_bedKi 2.62		//55C 3d-gussner
+#define  DEFAULT_bedKd 334.88	//55C 3d-gussner
 
 //#define  DEFAULT_bedKp 107.61	//100C
 //#define  DEFAULT_bedKi 4.7	//100C

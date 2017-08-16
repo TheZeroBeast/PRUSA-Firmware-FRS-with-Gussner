@@ -1383,17 +1383,17 @@ const char * const MSG_FR_SENS_ACTIVE_ON_LANG_TABLE[1] PROGMEM = {
 	MSG_FR_SENS_ACTIVE_ON_EN
 };
 
-const char MSG_FR_SENS_HIT_EN[] PROGMEM = "Filament deteced";
+const char MSG_FR_SENS_HIT_EN[] PROGMEM = "Filament detected";
 const char * const MSG_FR_SENS_HIT_LANG_TABLE[1] PROGMEM = {
 	MSG_FR_SENS_HIT_EN
 };
 
-const char MSG_FR_SENS_INVERTING_OFF_EN[] PROGMEM = "FR_Sens[S to GND]";
+const char MSG_FR_SENS_INVERTING_OFF_EN[] PROGMEM = "FR_Sens[S to VCC]";
 const char * const MSG_FR_SENS_INVERTING_OFF_LANG_TABLE[1] PROGMEM = {
 	MSG_FR_SENS_INVERTING_OFF_EN
 };
 
-const char MSG_FR_SENS_INVERTING_ON_EN[] PROGMEM = "FR_Sens[S to VCC]";
+const char MSG_FR_SENS_INVERTING_ON_EN[] PROGMEM = "FR_Sens[S to GND]";
 const char * const MSG_FR_SENS_INVERTING_ON_LANG_TABLE[1] PROGMEM = {
 	MSG_FR_SENS_INVERTING_ON_EN
 };
@@ -1401,6 +1401,16 @@ const char * const MSG_FR_SENS_INVERTING_ON_LANG_TABLE[1] PROGMEM = {
 const char MSG_FR_SENS_OPEN_EN[] PROGMEM = "Filament runout";
 const char * const MSG_FR_SENS_OPEN_LANG_TABLE[1] PROGMEM = {
 	MSG_FR_SENS_OPEN_EN
+};
+
+const char MSG_FR_SENS_PU_OFF_EN[] PROGMEM = "Pullup      [OFF]";
+const char * const MSG_FR_SENS_PU_OFF_LANG_TABLE[1] PROGMEM = {
+	MSG_FR_SENS_PU_OFF_EN
+};
+
+const char MSG_FR_SENS_PU_ON_EN[] PROGMEM = "Pullup       [ON]";
+const char * const MSG_FR_SENS_PU_ON_LANG_TABLE[1] PROGMEM = {
+	MSG_FR_SENS_PU_ON_EN
 };
 
 const char MSG_FR_SENS_SETTINGS_EN[] PROGMEM = "Filament Sensor";
@@ -3363,6 +3373,57 @@ const char * const MSG_SLIGHT_SKEW_LANG_TABLE[LANG_NUM] PROGMEM = {
 const char MSG_SOFTWARE_RESET_EN[] PROGMEM = " Software Reset";
 const char * const MSG_SOFTWARE_RESET_LANG_TABLE[1] PROGMEM = {
 	MSG_SOFTWARE_RESET_EN
+};
+
+const char MSG_SORTING_EN[] PROGMEM = "Sorting files";
+const char MSG_SORTING_DE[] PROGMEM = "Sortiere Dateien";
+const char MSG_SORTING_NL[] PROGMEM = "Sortere bestand";
+const char * const MSG_SORTING_LANG_TABLE[LANG_NUM] PROGMEM = {
+	MSG_SORTING_EN,
+	MSG_SORTING_EN,
+	MSG_SORTING_EN,
+	MSG_SORTING_EN,
+	MSG_SORTING_EN,
+	MSG_SORTING_DE,
+	MSG_SORTING_NL
+};
+
+const char MSG_SORT_ALPHA_EN[] PROGMEM = "Sort: [Alphabet]";
+const char MSG_SORT_ALPHA_NL[] PROGMEM = "Sort: 	[Alfabet]";
+const char * const MSG_SORT_ALPHA_LANG_TABLE[LANG_NUM] PROGMEM = {
+	MSG_SORT_ALPHA_EN,
+	MSG_SORT_ALPHA_EN,
+	MSG_SORT_ALPHA_EN,
+	MSG_SORT_ALPHA_EN,
+	MSG_SORT_ALPHA_EN,
+	MSG_SORT_ALPHA_EN,
+	MSG_SORT_ALPHA_NL
+};
+
+const char MSG_SORT_NONE_EN[] PROGMEM = "Sort: [None]";
+const char MSG_SORT_NONE_DE[] PROGMEM = "Sort:    [Keine]";
+const char MSG_SORT_NONE_NL[] PROGMEM = "Sort:     [Geen]";
+const char * const MSG_SORT_NONE_LANG_TABLE[LANG_NUM] PROGMEM = {
+	MSG_SORT_NONE_EN,
+	MSG_SORT_NONE_EN,
+	MSG_SORT_NONE_EN,
+	MSG_SORT_NONE_EN,
+	MSG_SORT_NONE_EN,
+	MSG_SORT_NONE_DE,
+	MSG_SORT_NONE_NL
+};
+
+const char MSG_SORT_TIME_EN[] PROGMEM = "Sort: [Time]";
+const char MSG_SORT_TIME_DE[] PROGMEM = "Sort:     [Zeit]";
+const char MSG_SORT_TIME_NL[] PROGMEM = "Sort:     [Tijd]";
+const char * const MSG_SORT_TIME_LANG_TABLE[LANG_NUM] PROGMEM = {
+	MSG_SORT_TIME_EN,
+	MSG_SORT_TIME_EN,
+	MSG_SORT_TIME_EN,
+	MSG_SORT_TIME_EN,
+	MSG_SORT_TIME_EN,
+	MSG_SORT_TIME_DE,
+	MSG_SORT_TIME_NL
 };
 
 const char MSG_SPEED_EN[] PROGMEM = "Speed";
