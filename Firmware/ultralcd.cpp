@@ -2676,14 +2676,15 @@ void lcd_fr_sens_settings_menu()
       MENU_ITEM(function, MSG_FR_SENS_ACTIVE_ON, lcd_fr_sens_active_set);
       if (FR_SENS_INVERTING == false) {
         MENU_ITEM(function, MSG_FR_SENS_INVERTING_OFF, lcd_fr_sens_inverting_set);
+        if (FR_SENS_PU == false) {
+          MENU_ITEM(function, MSG_FR_SENS_PU_OFF, lcd_fr_sens_pu_set);
+        } else {
+          MENU_ITEM(function, MSG_FR_SENS_PU_ON, lcd_fr_sens_pu_set);
+        }
       } else {
         MENU_ITEM(function, MSG_FR_SENS_INVERTING_ON, lcd_fr_sens_inverting_set);
       }
-      if (FR_SENS_PU == false) {
-        MENU_ITEM(function, MSG_FR_SENS_PU_OFF, lcd_fr_sens_pu_set);
-      } else {
-        MENU_ITEM(function, MSG_FR_SENS_PU_ON, lcd_fr_sens_pu_set);
-      }
+
     }
   END_MENU();
 }
