@@ -49,11 +49,11 @@
 #define EEPROM_CALIBRATION_STATUS_PINDA (EEPROM_BOWDEN_LENGTH - 1) //0 - not calibrated; 1 - calibrated
 #define EEPROM_SD_SORT (EEPROM_CALIBRATION_STATUS_PINDA - 1) //0 -time, 1-alpha, 2-none
 #define EEPROM_XYZ_CAL_SKEW (EEPROM_SD_SORT - 4)
-// FR_SENS
-#define EEPROM_FR_SENS_ACTIVE (EEPROM_XYZ_CAL_SKEW - 1) //0 - filament runout sensor disabled; 1 - .. activated
-#define EEPROM_FR_SENS_INVERTING (EEPROM_FR_SENS_ACTIVE - 1) //0 - filament runout sensor inverted; 1 - .. normal
-#define EEPROM_FR_SENS_PU (EEPROM_FR_SENS_INVERTING - 1) //0 - filament runout sensor pullup; 0 - .. normal
-// end FR_SENS
+// FILAMENT_RUNOUT_SENSOR
+#define EEPROM_FIL_RUNOUT_ACTIVE (EEPROM_XYZ_CAL_SKEW - 1) //0 - filament runout sensor disabled; 1 - .. activated
+#define EEPROM_FIL_RUNOUT_INVERTING (EEPROM_FIL_RUNOUT_ACTIVE - 1) //0 - filament runout sensor inverted; 1 - .. normal
+#define EEPROM_ENDSTOPPULLUP_FIL_RUNOUT (EEPROM_FIL_RUNOUT_INVERTING - 1) //0 - filament runout sensor pullup; 0 - .. normal
+// end FILAMENT_RUNOUT_SENSOR
 
 // Currently running firmware, each digit stored as uint16_t.
 // The flavor differentiates a dev, alpha, beta, release candidate or a release version.
@@ -77,7 +77,7 @@
 //#define STRING_VERSION "1.0.2"
 
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
-#define STRING_CONFIG_H_AUTHOR "3d-gussner,0816v1" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "3d-gussner,0822v5" // Who made the changes.
 
 // SERIAL_PORT selects which serial port should be used for communication with the host.
 // This allows the connection of wireless adapters (for instance) to non-default port pins.
@@ -253,10 +253,17 @@ your extruder heater takes 2 minutes to hit the target on heating.
   #define ENDSTOPPULLUP_ZMIN
 #endif
 
-// FR_SENS pullup ... see comment below 
-#ifdef FILAMENT_RUNOUT_SUPPORT 
-//	#define FR_SENS_PU
+// FILAMENT_RUNOUT_SENSOR pullup see comment below 
+#ifndef FILAMENT_RUNOUT_SENSOR 
+  //#define ENDSTOPPULLUP_FIL_RUNOUT
 #endif
+
+#ifdef FILAMENT_RUNOUT_SENSOR 
+  //#define ENDSTOPPULLUP_FIL_RUNOUT
+#endif
+
+// end FILAMENT_RUNOUT_SENSOR
+
 // The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
 
 const bool X_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.

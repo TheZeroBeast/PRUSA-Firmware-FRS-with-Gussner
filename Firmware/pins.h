@@ -32,9 +32,9 @@
     #error Oops!  Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu.
   #endif
   
-// FR_SENS
-  #define FR_SENS 24
-// end FR_SENS
+// FILAMENT_RUNOUT_SUPPORT
+  #define FIL_RUNOUT_PIN 24
+// end FILAMENT_RUNOUT_SUPPORT
 
   #define X_STEP_PIN 37
   #define X_DIR_PIN 48
@@ -222,7 +222,9 @@
     #error Oops!  Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu.
   #endif
 
-  #define FR_SENS 24
+// FILAMENT_RUNOUT_SUPPORT
+  #define FIL_RUNOUT_PIN 24
+// end FILAMENT_RUNOUT_SUPPORT
 
 #ifdef SNMM
 

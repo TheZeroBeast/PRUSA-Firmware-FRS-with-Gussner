@@ -178,13 +178,14 @@ ADDITIONAL FEATURES SETTINGS
 *------------------------------------*/
 
 // Define Prusa filament runout sensor
-#define FILAMENT_RUNOUT_SUPPORT
-//bool FR_SENS_INVERTING = true; // set to true to invert the logic of the filament runout.
+#define FILAMENT_RUNOUT_SENSOR
 // end Define Prusa filament runout sensor
 
-#ifdef FILAMENT_RUNOUT_SUPPORT
-#define FILAMENT_RUNOUT_SENSOR 1
+#ifdef FILAMENT_RUNOUT_SENSOR
+//#if ENABLED(FILAMENT_RUNOUT_SENSOR)
+//  #define ENDSTOPPULLUPENDSTOPPULLUP_FIL_RUNOUT // Uncomment to use internal pullup for filament runout pins if the sensor is defined.
 #endif
+//const bool FIL_RUNOUT_INVERTING = false; // set to true to invert the logic of the sensor.
 
 // temperature runaway
 #define TEMP_RUNAWAY_BED_HYSTERESIS 5
