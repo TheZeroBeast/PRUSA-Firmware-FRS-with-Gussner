@@ -49,11 +49,6 @@
 #define EEPROM_CALIBRATION_STATUS_PINDA (EEPROM_BOWDEN_LENGTH - 1) //0 - not calibrated; 1 - calibrated
 #define EEPROM_SD_SORT (EEPROM_CALIBRATION_STATUS_PINDA - 1) //0 -time, 1-alpha, 2-none
 #define EEPROM_XYZ_CAL_SKEW (EEPROM_SD_SORT - 4)
-// FILAMENT_RUNOUT_SENSOR
-#define EEPROM_FIL_RUNOUT_ACTIVE (EEPROM_XYZ_CAL_SKEW - 1) //0 - filament runout sensor disabled; 1 - .. activated
-#define EEPROM_FIL_RUNOUT_INVERTING (EEPROM_FIL_RUNOUT_ACTIVE - 1) //0 - filament runout sensor inverted; 1 - .. normal
-#define EEPROM_ENDSTOPPULLUP_FIL_RUNOUT (EEPROM_FIL_RUNOUT_INVERTING - 1) //0 - filament runout sensor pullup; 0 - .. normal
-// end FILAMENT_RUNOUT_SENSOR
 
 // Currently running firmware, each digit stored as uint16_t.
 // The flavor differentiates a dev, alpha, beta, release candidate or a release version.
@@ -77,7 +72,7 @@
 //#define STRING_VERSION "1.0.2"
 
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
-#define STRING_CONFIG_H_AUTHOR "3d-gussner,0822v5" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
 
 // SERIAL_PORT selects which serial port should be used for communication with the host.
 // This allows the connection of wireless adapters (for instance) to non-default port pins.
@@ -85,8 +80,7 @@
 #define SERIAL_PORT 0
 
 // This determines the communication speed of the printer
-//#define BAUDRATE 115200
-#define BAUDRATE 250000
+#define BAUDRATE 115200
 
 // This enables the serial port associated to the Bluetooth interface
 //#define BTENABLED              // Enable BT interface on AT90USB devices
@@ -252,17 +246,6 @@ your extruder heater takes 2 minutes to hit the target on heating.
   #define ENDSTOPPULLUP_YMIN
   #define ENDSTOPPULLUP_ZMIN
 #endif
-
-// FILAMENT_RUNOUT_SENSOR pullup see comment below 
-#ifndef FILAMENT_RUNOUT_SENSOR 
-  //#define ENDSTOPPULLUP_FIL_RUNOUT
-#endif
-
-#ifdef FILAMENT_RUNOUT_SENSOR 
-  //#define ENDSTOPPULLUP_FIL_RUNOUT
-#endif
-
-// end FILAMENT_RUNOUT_SENSOR
 
 // The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
 
@@ -708,7 +691,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
  * Note may require analog pins to be defined for different motherboards
  **********************************************************************/
 // Uncomment below to enable
-#define FILAMENT_SENSOR
+//#define FILAMENT_SENSOR
+
 #define FILAMENT_SENSOR_EXTRUDER_NUM	0  //The number of the extruder that has the filament sensor (0,1,2)
 #define MEASUREMENT_DELAY_CM			14  //measurement delay in cm.  This is the distance from filament sensor to middle of barrel
 
