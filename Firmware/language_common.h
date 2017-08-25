@@ -41,6 +41,9 @@ define MSG_Y_MIN                           "y_min: "
 define MSG_Y_MAX                           "y_max: "
 define MSG_Z_MIN                           "z_min: "
 define MSG_Z_MAX                           "z_max: "
+// FILAMENT_RUNOUT_SUPPORT
+define MSG_FILAMENT_RUNOUT_SUPPORT		   "fr_support: "
+// end FILAMENT_RUNOUT_SUPPORT
 
 // FR_SENS
 define MSG_FR_SENS                         "fr_sens: "

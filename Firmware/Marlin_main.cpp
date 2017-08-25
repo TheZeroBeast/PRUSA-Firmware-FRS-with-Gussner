@@ -1060,7 +1060,6 @@ void setup()
 	SERIAL_ECHOLNPGM(STRING_CONFIG_H_AUTHOR);
 	SERIAL_ECHOPGM("Compiled: ");
 	SERIAL_ECHOLNPGM(__DATE__);
-	SERIAL_ECHOLNPGM(__TIME__);
 #endif
 #endif
 
@@ -2191,7 +2190,7 @@ void process_commands()
         return;
     } else if (code_seen("SERIAL HIGH")) {
         MYSERIAL.println("SERIAL HIGH");
-        MYSERIAL.begin(2500000);
+        MYSERIAL.begin(1152000);
         return;
     } else if(code_seen("Beat")) {
         // Kick farm link timer
@@ -4559,15 +4558,6 @@ Sigma_Exit:
         }
         SERIAL_PROTOCOLLN("");
       #endif
-	    #if fr_sens_active && defined(FR_SENS) && FR_SENS > -1
-        SERIAL_PROTOCOLRPGM(MSG_Y_MAX);
-        if(READ(FR_SENS)^FR_SENS_INVERTING){
-          SERIAL_PROTOCOLRPGM(MSG_ENDSTOP_HIT);
-        }else{
-          SERIAL_PROTOCOLRPGM(MSG_ENDSTOP_OPEN);
-        }
-        SERIAL_PROTOCOLLN("");
-      #endif
       break;
       //TODO: update for all axis, use for loop
     #ifdef BLINKM
@@ -5009,7 +4999,7 @@ Sigma_Exit:
     {
       float temp = 150.0;
       int e=0;
-      int c=8;
+      int c=5;
       if (code_seen('E')) e=code_value();
         if (e<0)
           temp=70;
@@ -5651,7 +5641,7 @@ case 404:  //M404 Enter the nominal filament width (3mm, 1.75mm ) N<3.0> or disp
 
 		  pinMode(E_MUX0_PIN, OUTPUT);
 		  pinMode(E_MUX1_PIN, OUTPUT);
-		  
+
 		  delay(100);
 		  SERIAL_ECHO_START;
 		  SERIAL_ECHO("T:");
@@ -5660,22 +5650,22 @@ case 404:  //M404 Enter the nominal filament width (3mm, 1.75mm ) N<3.0> or disp
 		  case 1:
 			  WRITE(E_MUX0_PIN, HIGH);
 			  WRITE(E_MUX1_PIN, LOW);
-			  
+
 			  break;
 		  case 2:
 			  WRITE(E_MUX0_PIN, LOW);
 			  WRITE(E_MUX1_PIN, HIGH);
-			  
+
 			  break;
 		  case 3:
 			  WRITE(E_MUX0_PIN, HIGH);
 			  WRITE(E_MUX1_PIN, HIGH);
-			  
+
 			  break;
 		  default:
 			  WRITE(E_MUX0_PIN, LOW);
 			  WRITE(E_MUX1_PIN, LOW);
-			  
+
 			  break;
 		  }
 		  delay(100);

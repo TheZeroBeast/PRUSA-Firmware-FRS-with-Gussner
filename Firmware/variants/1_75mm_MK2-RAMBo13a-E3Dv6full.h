@@ -108,13 +108,13 @@ EXTRUDER SETTINGS
 #define  DEFAULT_Kd 73.76
 #else
 // Define PID constants for extruder
-//#define  DEFAULT_Kp 40.925	//orig
-//#define  DEFAULT_Ki 4.875		//orig
-//#define  DEFAULT_Kd 86.085	//orig
+#define  DEFAULT_Kp 40.925	//orig
+#define  DEFAULT_Ki 4.875		//orig
+#define  DEFAULT_Kd 86.085	//orig
 
-#define  DEFAULT_Kp 22.39	//205C
-#define  DEFAULT_Ki 1.98	//205C	
-#define  DEFAULT_Kd 63.27	//205C
+//#define  DEFAULT_Kp 22.39	//205C 3d-gussner
+//#define  DEFAULT_Ki 1.98	//205C 3d-gussner	
+//#define  DEFAULT_Kd 63.27	//205C 3d-gussner
 
 //#define  DEFAULT_Kp 23.68	//255C
 //#define  DEFAULT_Ki 1.98	//255C
@@ -178,10 +178,10 @@ ADDITIONAL FEATURES SETTINGS
 *------------------------------------*/
 
 // Define Prusa filament runout sensor
-#define FILAMENT_RUNOUT_SUPPORT
-const bool FR_SENS_INVERTING = true; // set to true to invert the logic of the filament runout.
+#define FILAMENT_RUNOUT_SENSOR
+// end Define Prusa filament runout sensor
 
-#ifdef FILAMENT_RUNOUT_SUPPORT
+#ifdef FILAMENT_RUNOUT_SENSOR
 #define FILAMENT_RUNOUT_SENSOR 1
 #endif
 
@@ -273,13 +273,13 @@ BED SETTINGS
 #define  DEFAULT_bedKi 1.60
 #define  DEFAULT_bedKd 73.76
 #else
-//#define  DEFAULT_bedKp 126.13	//orig
-//#define  DEFAULT_bedKi 4.30	//orig
-//#define  DEFAULT_bedKd 924.76	//orig
+#define  DEFAULT_bedKp 126.13	//orig
+#define  DEFAULT_bedKi 4.30	//orig
+#define  DEFAULT_bedKd 924.76	//orig
 
-#define  DEFAULT_bedKp 59.24	//55C
-#define  DEFAULT_bedKi 2.62		//55C
-#define  DEFAULT_bedKd 334.88	//55C
+//#define  DEFAULT_bedKp 59.24	//55C
+//#define  DEFAULT_bedKi 2.62		//55C
+//#define  DEFAULT_bedKd 334.88	//55C
 
 //#define  DEFAULT_bedKp 107.61	//100C
 //#define  DEFAULT_bedKi 4.7	//100C
@@ -417,5 +417,4 @@ THERMISTORS SETTINGS
 #else
 #define DEFAULT_RETRACTION 1 //used for PINDA temp calibration and pause print
 #endif
-
 #endif //__CONFIGURATION_PRUSA_H
