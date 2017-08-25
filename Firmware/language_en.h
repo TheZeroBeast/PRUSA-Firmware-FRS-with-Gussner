@@ -319,6 +319,7 @@
 #define(length=15, lines=1) MSG_SLIGHT_SKEW						"Slight skew:"
 #define(length=15, lines=1) MSG_SEVERE_SKEW						"Severe skew:"
 #define(length=20, lines=4) MSG_DEFAULT_SETTINGS_LOADED			"Default settings loaded"
+<<<<<<< HEAD
 //FR_SENS
 #define(length=20) MSG_FR_SENS_SETTINGS               "Filament Sensor"
 #define(length=20) MSG_FR_SENS_ACTIVE_ON              "Sens Runout  [ON]"
@@ -327,3 +328,9 @@
 #define(length=20) MSG_FR_SENS_PU_OFF                 "Pullup      [OFF]"
 #define(length=20) MSG_FR_SENS_INVERTING_ON           "FR_Sens[S to VCC]"
 #define(length=20) MSG_FR_SENS_INVERTING_OFF          "FR_Sens[S to GND]"
+=======
+#define(length=17, lines=1) MSG_SORT_TIME						"Sort: [Time]"
+#define(length=17, lines=1) MSG_SORT_ALPHA						"Sort: [Alphabet]"
+#define(length=17, lines=1) MSG_SORT_NONE						"Sort: [None]"
+#define(length=20, lines=1) MSG_SORTING							"Sorting files"
+>>>>>>> 9753446e2eb7f394c7d6b5e1d2e9c17ea980bea0

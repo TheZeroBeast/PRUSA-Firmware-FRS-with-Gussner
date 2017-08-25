@@ -5,7 +5,7 @@
 #include "Configuration_prusa.h"
 
 // Firmware version
-#define FW_version "3.0.12-2"
+#define FW_version "3.0.12-3"
 
 #define FW_PRUSA3D_MAGIC "PRUSA3DFW"
 #define FW_PRUSA3D_MAGIC_LEN 10
@@ -47,6 +47,8 @@
 #define EEPROM_TEMP_CAL_ACTIVE (EEPROM_PROBE_TEMP_SHIFT - 1)
 #define EEPROM_BOWDEN_LENGTH (EEPROM_TEMP_CAL_ACTIVE - 2*4) //4 x int for bowden lengths for multimaterial
 #define EEPROM_CALIBRATION_STATUS_PINDA (EEPROM_BOWDEN_LENGTH - 1) //0 - not calibrated; 1 - calibrated
+#define EEPROM_SD_SORT (EEPROM_CALIBRATION_STATUS_PINDA - 1) //0 -time, 1-alpha, 2-none
+#define EEPROM_XYZ_CAL_SKEW (EEPROM_SD_SORT - 4)
 
 //FR_SENS
 #define EEPROM_FR_SENS_ACTIVE (EEPROM_CALIBRATION_STATUS_PINDA - 1) //0 - filament runout sensor disabled; 1 - .. activated
@@ -298,7 +300,6 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 
 #define min_software_endstops true // If true, axis won't move to coordinates less than HOME_POS.
 #define max_software_endstops true  // If true, axis won't move to coordinates greater than the defined lengths below.
-
 #endif //DEBUG_DISABLE_SWLIMITS
 
 #define X_MAX_LENGTH (X_MAX_POS - X_MIN_POS)
