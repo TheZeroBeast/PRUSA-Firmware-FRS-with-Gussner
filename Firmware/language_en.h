@@ -82,7 +82,6 @@
 #define(length=20) MSG_UNLOAD_ALL						"Unload all"
 #define(length=20) MSG_LOAD_ALL							"Load all"
 
-
 #define MSG_RECTRACT                        "Rectract"
 #define MSG_ERROR                        "ERROR:"
 #define(length=20) MSG_PREHEAT_NOZZLE       "Preheat the nozzle!"
@@ -134,6 +133,11 @@
 #define MSG_M119_REPORT                     "Reporting endstop status"
 #define MSG_ENDSTOP_HIT                     "TRIGGERED"
 #define MSG_ENDSTOP_OPEN                    "open"
+// FILAMENT_RUNOUT_SUPPORT
+#define MSG_FILAMENT_RUNOUT_SUPPORT			"Fil.Runout S"
+#define MSG_FILAMENT_RUNOUT_SUPPORT_HIT		"Filament detected"
+#define MSG_FILAMENT_RUNOUT_SUPPORT_OPEN	"Filament runout"
+// end FILAMENT_RUNOUT_SUPPORT
 
 // FILAMENT_RUNOUT_SUPPORT
 #define MSG_FILAMENT_RUNOUT_SUPPORT			"Fil.Runout S"
