@@ -134,10 +134,12 @@
 #define MSG_M119_REPORT                     "Reporting endstop status"
 #define MSG_ENDSTOP_HIT                     "TRIGGERED"
 #define MSG_ENDSTOP_OPEN                    "open"
-// FR_SENS
-#define MSG_FR_SENS_HIT            "Filament detected"
-#define MSG_FR_SENS_OPEN          "Filament runout"
-// FR_SENS
+
+// FILAMENT_RUNOUT_SUPPORT
+#define MSG_FILAMENT_RUNOUT_SUPPORT			"Fil.Runout S"
+#define MSG_FILAMENT_RUNOUT_SUPPORT_HIT		"Filament detected"
+#define MSG_FILAMENT_RUNOUT_SUPPORT_OPEN		"Filament runout"
+// end FILAMENT_RUNOUT_SUPPORT
 
 #define MSG_SD_CANT_OPEN_SUBDIR             "Cannot open subdir"
 #define MSG_SD_INIT_FAIL                    "SD init fail"
@@ -319,18 +321,14 @@
 #define(length=15, lines=1) MSG_SLIGHT_SKEW						"Slight skew:"
 #define(length=15, lines=1) MSG_SEVERE_SKEW						"Severe skew:"
 #define(length=20, lines=4) MSG_DEFAULT_SETTINGS_LOADED			"Default settings loaded"
-<<<<<<< HEAD
-//FR_SENS
-#define(length=20) MSG_FR_SENS_SETTINGS               "Filament Sensor"
-#define(length=20) MSG_FR_SENS_ACTIVE_ON              "Sens Runout  [ON]"
-#define(length=20) MSG_FR_SENS_ACTIVE_OFF             "Sens Runout [OFF]"
-#define(length=20) MSG_FR_SENS_PU_ON                  "Pullup       [ON]"
-#define(length=20) MSG_FR_SENS_PU_OFF                 "Pullup      [OFF]"
-#define(length=20) MSG_FR_SENS_INVERTING_ON           "FR_Sens[S to VCC]"
-#define(length=20) MSG_FR_SENS_INVERTING_OFF          "FR_Sens[S to GND]"
-=======
 #define(length=17, lines=1) MSG_SORT_TIME						"Sort: [Time]"
 #define(length=17, lines=1) MSG_SORT_ALPHA						"Sort: [Alphabet]"
 #define(length=17, lines=1) MSG_SORT_NONE						"Sort: [None]"
 #define(length=20, lines=1) MSG_SORTING							"Sorting files"
->>>>>>> 9753446e2eb7f394c7d6b5e1d2e9c17ea980bea0
+#define(length=20) MSG_FIL_RUNOUT_SETTINGS						"Filament Runout S"
+#define(length=20) MSG_FIL_RUNOUT_ACTIVE_ON						"Sens Runout  [ON]"
+#define(length=20) MSG_FIL_RUNOUT_ACTIVE_OFF					"Sens Runout [OFF]"
+#define(length=20) MSG_ENDSTOPPULLUP_FIL_RUNOUT_ON              "FR Pullup    [ON]"
+#define(length=20) MSG_ENDSTOPPULLUP_FIL_RUNOUT_OFF             "FR Pullup   [OFF]"
+#define(length=20) MSG_FIL_RUNOUT_INVERTING_OFF					"FR_Sens[S to VCC]"
+#define(length=20) MSG_FIL_RUNOUT_INVERTING_ON					"FR_Sens[S to GND]"

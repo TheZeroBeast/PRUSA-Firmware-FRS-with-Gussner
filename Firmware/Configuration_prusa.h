@@ -108,13 +108,9 @@ EXTRUDER SETTINGS
 #define  DEFAULT_Kd 73.76
 #else
 // Define PID constants for extruder
-//#define  DEFAULT_Kp 40.925	//orig
-//#define  DEFAULT_Ki 4.875		//orig
-//#define  DEFAULT_Kd 86.085	//orig
-
-#define  DEFAULT_Kp 17.33	//205C
-#define  DEFAULT_Ki 1.60	//205C	
-#define  DEFAULT_Kd 46.87	//205C
+#define  DEFAULT_Kp 40.925	//orig
+#define  DEFAULT_Ki 4.875		//orig
+#define  DEFAULT_Kd 86.085	//orig
 
 //#define  DEFAULT_Kp 23.68	//255C
 //#define  DEFAULT_Ki 1.98	//255C
@@ -178,13 +174,14 @@ ADDITIONAL FEATURES SETTINGS
 *------------------------------------*/
 
 // Define Prusa filament runout sensor
-#define FILAMENT_RUNOUT_SUPPORT
-//#define FS_SENS_ENABLED "1"
-//const bool FR_SENS_INVERTING = true; // set to true to invert the logic of the filament runout.
+#define FILAMENT_RUNOUT_SENSOR
+// end Define Prusa filament runout sensor
 
-#ifdef FILAMENT_RUNOUT_SUPPORT
-#define FILAMENT_RUNOUT_SENSOR 1
+#ifdef FILAMENT_RUNOUT_SENSOR
+//#if ENABLED(FILAMENT_RUNOUT_SENSOR)
+//  #define ENDSTOPPULLUPENDSTOPPULLUP_FIL_RUNOUT // Uncomment to use internal pullup for filament runout pins if the sensor is defined.
 #endif
+//const bool FIL_RUNOUT_INVERTING = false; // set to true to invert the logic of the sensor.
 
 // temperature runaway
 #define TEMP_RUNAWAY_BED_HYSTERESIS 5
@@ -274,13 +271,9 @@ BED SETTINGS
 #define  DEFAULT_bedKi 1.60
 #define  DEFAULT_bedKd 73.76
 #else
-//#define  DEFAULT_bedKp 126.13	//orig
-//#define  DEFAULT_bedKi 4.30	//orig
-//#define  DEFAULT_bedKd 924.76	//orig
-
-#define  DEFAULT_bedKp 90.97	//105C
-#define  DEFAULT_bedKi 10.78		//105C
-#define  DEFAULT_bedKd 191.89	//105C
+#define  DEFAULT_bedKp 126.13	//orig
+#define  DEFAULT_bedKi 4.30	//orig
+#define  DEFAULT_bedKd 924.76	//orig
 
 //#define  DEFAULT_bedKp 107.61	//100C
 //#define  DEFAULT_bedKi 4.7	//100C
