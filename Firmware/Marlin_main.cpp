@@ -1240,11 +1240,6 @@ void setup()
       lcd_show_fullscreen_message_and_wait_P(MSG_FOLLOW_CALIBRATION_FLOW);
   }
   for (int i = 0; i<4; i++) EEPROM_read_B(EEPROM_BOWDEN_LENGTH + i * 2, &bowden_length[i]);
-
-  //FR_SENS
-  fr_sens_active = eeprom_read_byte((uint8_t*)EEPROM_FR_SENS_ACTIVE);
-  FR_SENS_INVERTING = eeprom_read_byte((uint8_t*)EEPROM_FR_SENS_INVERTING);
-  FR_SENS_PU = eeprom_read_byte((uint8_t*)EEPROM_FR_SENS_PU);
   
   //If eeprom version for storing parameters to eeprom using M500 changed, default settings are used. Inform user in this case
   if (!previous_settings_retrieved) {
