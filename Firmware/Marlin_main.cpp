@@ -2194,7 +2194,7 @@ void process_commands()
         return;
     } else if (code_seen("SERIAL HIGH")) {
         MYSERIAL.println("SERIAL HIGH");
-        MYSERIAL.begin(250000);
+        MYSERIAL.begin(1152000);
         return;
     } else if(code_seen("Beat")) {
         // Kick farm link timer
