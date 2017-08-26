@@ -251,7 +251,7 @@
 *  - SDSORT_CACHE_NAMES will retain the sorted file listing in RAM. (Expensive!)
 *  - SDSORT_DYNAMIC_RAM only uses RAM when the SD menu is visible. (Use with caution!)
 */
-//#define SDCARD_SORT_ALPHA //Alphabetical sorting of SD files menu
+#define SDCARD_SORT_ALPHA //Alphabetical sorting of SD files menu
 
 // SD Card Sorting options
 // In current firmware Prusa Firmware version,

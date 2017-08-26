@@ -2693,6 +2693,7 @@ void lcd_toshiba_flash_air_compatibility_toggle()
 void lcd_sdcard_settings_menu()
 {
 	START_MENU();
+    uint8_t sdSort;
 		MENU_ITEM(back, MSG_SETTINGS, lcd_settings_menu);
 		if (card.ToshibaFlashAir_isEnabled()) {
 		MENU_ITEM(function, MSG_TOSHIBA_FLASH_AIR_COMPATIBILITY_ON, lcd_toshiba_flash_air_compatibility_toggle);
