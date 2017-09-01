@@ -1077,6 +1077,7 @@ void setup()
 	watchdog_init();
     lcd_print_at_PGM(0, 1, PSTR("   Original Prusa   ")); // we need to do this again for some reason, no time to research
     lcd_print_at_PGM(0, 2, PSTR("    3D  Printers    "));
+    _delay_ms(2000);
 	st_init();    // Initialize stepper, this enables interrupts!
 	setup_photpin();
 	servo_init();
@@ -1148,12 +1149,6 @@ void setup()
 
 		}
 	}
-	else
-	{
-		//_delay_ms(1000);  // wait 1sec to display the splash screen // what's this and why do we need it?? - andre
-	}
-
-
 
 #if defined(CONTROLLERFAN_PIN) && CONTROLLERFAN_PIN > -1
 	SET_OUTPUT(CONTROLLERFAN_PIN); //Set pin used for driver cooling fan
