@@ -2222,7 +2222,7 @@ void process_commands()
       if(Stopped == false) {
 
         #ifdef FILAMENT_RUNOUT_SENSOR
-           if((READ(FIL_RUNOUT_PIN) ^ FIL_RUNOUT_INVERTING == 0) && fil_runout_active) {
+          if((READ(FIL_RUNOUT_PIN) ^ FIL_RUNOUT_INVERTING == 0) && fil_runout_active) {
                         feedmultiplyBckp=feedmultiply;
                         float target[4];
                         float lastpos[4];
