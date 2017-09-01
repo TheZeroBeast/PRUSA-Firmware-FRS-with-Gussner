@@ -1149,12 +1149,6 @@ void setup()
 
 		}
 	}
-	else
-	{
-		//_delay_ms(2000);  // wait 2sec to display the splash screen
-	}
-
-
 
 #if defined(CONTROLLERFAN_PIN) && CONTROLLERFAN_PIN > -1
 	SET_OUTPUT(CONTROLLERFAN_PIN); //Set pin used for driver cooling fan
