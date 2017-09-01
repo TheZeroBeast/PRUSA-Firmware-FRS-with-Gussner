@@ -1077,6 +1077,7 @@ void setup()
 	watchdog_init();
     lcd_print_at_PGM(0, 1, PSTR("   Original Prusa   ")); // we need to do this again for some reason, no time to research
     lcd_print_at_PGM(0, 2, PSTR("    3D  Printers    "));
+    _delay_ms(2000);
 	st_init();    // Initialize stepper, this enables interrupts!
 	setup_photpin();
 	servo_init();
@@ -1150,7 +1151,7 @@ void setup()
 	}
 	else
 	{
-		//_delay_ms(1000);  // wait 1sec to display the splash screen // what's this and why do we need it?? - andre
+		//_delay_ms(2000);  // wait 2sec to display the splash screen
 	}
 
 
@@ -2227,7 +2228,7 @@ void process_commands()
       if(Stopped == false) {
 
         #ifdef FILAMENT_RUNOUT_SENSOR
-          if((READ(FIL_RUNOUT_PIN) ^ FIL_RUNOUT_INVERTING == 0) && fil_runout_active) {
+            if((READ(FIL_RUNOUT_PIN) ^ FIL_RUNOUT_INVERTING == 0) && fil_runout_active) {
                         feedmultiplyBckp=feedmultiply;
                         float target[4];
                         float lastpos[4];
